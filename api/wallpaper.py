@@ -1,9 +1,12 @@
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+from flask import Flask, send_file
 import io
-import base64
 
-def handler(request):
+app = Flask(__name__)
+
+@app.route("/api/wallpaper")
+def wallpaper():
 
     img = Image.open("base.jpg")
     draw = ImageDraw.Draw(img)
@@ -65,17 +68,8 @@ def handler(request):
 
             count += 1
 
-    # ---- RETURN IMAGE ----
     buffer = io.BytesIO()
     img.save(buffer, format="JPEG")
+    buffer.seek(0)
 
-    img_base64 = base64.b64encode(buffer.getvalue()).decode()
-
-    return {
-        "statusCode": 200,
-        "headers": {
-            "Content-Type": "image/jpeg"
-        },
-        "body": img_base64,
-        "isBase64Encoded": True
-    }
+    return send_file(buffer, mimetype="image/jpeg")
