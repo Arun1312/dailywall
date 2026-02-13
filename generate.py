@@ -72,6 +72,9 @@ draw.text(
         
 
 # ---- SAVE OUTPUT ----
-img.save("output.jpg")
+today_str = today.strftime("%Y-%m-%d")
+filename = f"output-{today_str}.jpg"
+img.save(filename)
+
 
 print("Wallpaper generated: output.jpg")
