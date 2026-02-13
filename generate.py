@@ -6,7 +6,7 @@ img = Image.open("base.jpg")
 draw = ImageDraw.Draw(img)
 
 # ---- SETTINGS ----
-start_date = datetime(2026, 2, 8)
+start_date = datetime(2026, 2, 6)
 today = datetime.now()
 
 days_passed = (today - start_date).days % 40
