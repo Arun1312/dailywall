@@ -63,6 +63,14 @@ for r in range(rows):
 
         count += 1
 
+draw.text(
+    (10, 10),
+    str(datetime.now()),
+    fill=(0, 0, 0),
+    font=ImageFont.load_default()
+)
+        
+
 # ---- SAVE OUTPUT ----
 img.save("output.jpg")
 
