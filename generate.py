@@ -9,7 +9,9 @@ draw = ImageDraw.Draw(img)
 start_date = datetime(2026, 2, 8)
 today = datetime.now()
 
-days_passed = (today - start_date).days % 40
+# days_passed = (today - start_date).days % 40
+days_passed = 15
+
 
 rows = 4
 cols = 10
