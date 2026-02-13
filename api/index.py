@@ -72,7 +72,9 @@ def handler(request):
     return {
         "statusCode": 200,
         "headers": {
-            "Content-Type": "image/jpeg"
+            "Content-Type": "image/jpeg",
+            "Content-Disposition": "inline"
+
         },
         "body": encoded,
         "isBase64Encoded": True
